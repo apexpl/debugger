@@ -1,0 +1,47 @@
+#!/usr/bin/env php
+<?php
+declare(strict_types = 1);
+
+use Apex\Debugger\Cli\Cli;
+
+
+// Get location of autload.php
+if (!$autoload_file = getAutoloadLocation()) { 
+    die("Please ensure you load the Composer dependencies first.");
+}
+
+
+// Load Composer
+require_once($autoload_file);
+
+// Run CLI
+Cli::run();
+
+// Exit
+exit(0);
+
+/**
+ * Get autoload.php location
+ */
+function getAutoloadLocation():?string
+{
+
+    // Files to check
+    $files = [
+        __DIR__ . '/../../vendor/autoload.php', 
+        __DIR__ . '/../vendor/autoload.php', 
+        __DIR__ . '/vendor/autoload.php'
+    ];
+
+        // Go through files
+    foreach ($files as $file) { 
+        if (file_exists($file)) { 
+            return $file;
+        }
+    }
+
+    // Not found, return null
+    return null;
+
+}
+
