@@ -3,10 +3,10 @@
     "description": "Lightweight, portable debugger for use in any application.", 
     "type": "package",
     "authors": [
-        [
+        {
             "name": "Matt Dizak", 
             "email": "matt.dizak@gmail.com"
-        ]
+        }
     ], 
     "homepage": "https://apexpl.io",
     "license": "MIT",
@@ -19,7 +19,7 @@
     }, 
     "bin": [
         "debugger"
-    ]
+    ], 
     "autoload": {
         "psr-4": { 
             "Apex\\Debugger\\": "src/"
