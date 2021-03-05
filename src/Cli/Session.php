@@ -60,7 +60,7 @@ class Session
         // Add items to command map
         $x=1;
         foreach ($this->data['items'] as $key => $vars) { 
-            $command_map['i' . $x] = ['showItems', $key];
+            $command_map['e' . $x] = ['showItems', $key];
         }
 
         // Get command
@@ -117,11 +117,11 @@ class Session
 
         // Add items
         if (count($d['items']) > 0) { 
-            Cli::send("    [e] Extra Items (" . count($d['items']) . " items)\n");
+            Cli::send("    [ ] Extra Items (" . count($d['items']) . " items)\n");
 
             $x=1;
             foreach ($d['items'] as $key => $vars) { 
-                Cli::send('        [i$x] $key (' . count($vars) . " items )\n", 8);
+                Cli::send('        [e' . $x . '] $key (' . count($vars) . " items )\n", 8);
             $x++; }
         }
 
