@@ -87,10 +87,10 @@ class Saver
             'exception' => $exception, 
             'backtrace' => $this->getBacktrace($trace), 
             'inputs' => [
-                'post' => filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING) ?? [], 
-                'get' => filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING) ?? [],  
-                'cookie' => filter_input_array(INPUT_COOKIE, FILTER_SANITIZE_STRING) ?? [],  
-                'server' => filter_input_array(INPUT_SERVER, FILTER_SANITIZE_STRING) ?? [],  
+                'post' => filter_input_array(INPUT_POST) ?? [], 
+                'get' => filter_input_array(INPUT_GET) ?? [],  
+                'cookie' => filter_input_array(INPUT_COOKIE) ?? [],  
+                'server' => filter_input_array(INPUT_SERVER) ?? [],  
                 'http_headers' => function_exists('getAllHeaders') ? getAllHeaders() : []
             ]
         ];
