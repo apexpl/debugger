@@ -15,6 +15,7 @@ class Debugger implements DebuggerInterface
 
     // Properties
     private int $status = 200;
+    private int $start_time = 0;
     private array $notes = [];
     private array $items = [];
     private array $request = [];
